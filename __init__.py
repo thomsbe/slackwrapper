@@ -2,6 +2,7 @@ from slackclient import SlackClient
 
 __initialized = False
 
+
 class MsgBlock():
     def __init__(self):
         self.block = []
@@ -26,6 +27,24 @@ class MsgBlock():
         section["fields"] = msg_fields
         self.block.append(section)
 
+    def add_context(self, text):
+        section = {
+            "type": "context",
+            "elements": [
+                {
+                    "type": "mrkdwn",
+                    "text": text
+                }
+            ]
+        }
+        self.block.append(section)
+
+    def add_hr(self):
+        section = {
+            "type": "divider"
+        }
+        self.block.append(section)
+
     def get_block(self):
         return self.block
 
@@ -37,7 +56,6 @@ def create(icon: str, channel: str, user: str, token: str) -> None:
     CHANNEL = channel
     USER = user
     __initialized = True
-    print("Ich war da.")
 
 
 def __check_init():
