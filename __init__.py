@@ -23,7 +23,9 @@ class MsgBlock():
         msg_fields = []
         for field in fields:
             msg_fields.append({"type": "mrkdwn", "text": field})
-
+            if msg_fields.__len__() == 9:
+                msg_fields.append({"type": "mrkdwn", "text": "*And some more...*\nBut it's limited to 10 fields."})
+                break
         section["fields"] = msg_fields
         self.block.append(section)
 
