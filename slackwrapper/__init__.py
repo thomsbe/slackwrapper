@@ -1,3 +1,5 @@
+import os
+
 from slackclient import SlackClient
 
 name = "slackwrapper"
@@ -55,7 +57,8 @@ class MsgBlock():
 
 def create(icon: str, channel: str, user: str, token: str) -> None:
     global sc, ICON, CHANNEL, USER, __initialized
-    sc = SlackClient(token)
+    proxy = {'https': os.environ.get('https_proxy') or None}
+    sc = SlackClient(token, proxies=proxy)
     ICON = icon
     CHANNEL = channel
     USER = user

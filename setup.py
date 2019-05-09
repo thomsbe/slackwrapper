@@ -5,14 +5,14 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="slackwrapper-thomsbe",
-    version="0.0.1",
+    version="0.0.2",
     author="Thomas Baer",
     author_email="thomas.baer@tbaer.eu",
     description="A small wrapper to easily use the slack client",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/thomsbe/slackwrapper",
-    packages=setuptools.find_packages(),
+    packages="slackclient",
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
