@@ -1,5 +1,7 @@
 from slackclient import SlackClient
 
+name = "slackwrapper"
+
 __initialized = False
 
 
